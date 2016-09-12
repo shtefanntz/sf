@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Common
 {
+    using Microsoft.ServiceFabric.Services.Remoting;
+
     public class ShoppingCartItem
     {
       public string ProductName { get; set; }
@@ -16,7 +18,7 @@ namespace Common
     }
 
   [ServiceContract]
-  public interface IShoppingCartService
+  public interface IShoppingCartService : IService
   {
     [OperationContract]
     Task AddItem(ShoppingCartItem item);

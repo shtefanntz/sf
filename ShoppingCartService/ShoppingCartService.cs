@@ -13,10 +13,11 @@ using Microsoft.ServiceFabric.Services.Communication.Wcf.Runtime;
 
 namespace ShoppingCartService
 {
-  /// <summary>
-  /// An instance of this class is created for each service replica by the Service Fabric runtime.
-  /// </summary>
-  internal sealed class ShoppingCartService : StatefulService, IShoppingCartService
+    /// <summary>
+    /// An instance of this class is created for each service replica by the Service Fabric runtime.
+    /// </summary>
+    [ServiceBehavior(AddressFilterMode = AddressFilterMode.Any)]
+    internal sealed class ShoppingCartService : StatefulService, IShoppingCartService
   {
     public ShoppingCartService(StatefulServiceContext context)
         : base(context)
